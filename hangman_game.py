@@ -6,6 +6,7 @@ import requests
 class RandomWords:
     """Get random words, in spanish language."""
     def __init__(self):
+        """Class constructor."""
         url = 'https://clientes.api.greenborn.com.ar/public-random-word'
         response = requests.request('get', url)
         self.word = response.text[2:-2]
@@ -18,6 +19,11 @@ class RandomWords:
 class Boards:
     """Manage game boards, based on a word."""
     def __init__(self, word: str):
+        """Class constructor.
+
+        Params:
+            - word: str expected, random generated word, to generate the boards.
+        """
         self.word = word
         self.word_length = len(self.word)
         base_character = '_ '
